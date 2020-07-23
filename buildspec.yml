@@ -1,0 +1,14 @@
+version: 0.2
+env:
+  variables:
+    env: production
+phases:
+  install:   
+    commands:
+      - git clone ('https://github.com/rohkhith/vuepocrepo.git')
+      - npm install --save
+      - npm run test:unit
+
+  build:
+    commands:
+      - npm run build
