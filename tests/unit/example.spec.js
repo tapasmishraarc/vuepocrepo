@@ -41,7 +41,7 @@ describe('Login.vue testing', () => {
 
   it('check for div existance', () => {
   const div = wrapper.find('div');
-  expect(div.exists()).to.equal(true);
+  expect(div.exists()).to.equal(false);
 })
 
 
