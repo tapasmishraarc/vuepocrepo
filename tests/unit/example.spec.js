@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import Login from '@/components/Login.vue';
 var loginUsersList= require('@/assets/users.json');
 import MainHeader from '@/components/MainHeader.vue'
+import Vue from 'vue';
 
 describe('UsersList Testing', () => {
   it('renders props.msg when passed', () => {
