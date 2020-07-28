@@ -5,6 +5,7 @@ import Login from '@/components/Login.vue';
 var loginUsersList= require('@/assets/users.json');
 import MainHeader from '@/components/MainHeader.vue'
 import Vue from 'vue';
+import axios from 'axios';
 
 describe('UsersList Testing', () => {
   it('renders props.msg when passed', () => {
