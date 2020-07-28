@@ -47,7 +47,7 @@ describe('Login.vue testing', () => {
 
 it("should render MainHeader on mount", () => {
   let component=shallowMount(MainHeader);
-  expect(component.find(MainHeader).exists()).to.be.true;
+  expect(component.find(MainHeader).exists()).to.be.false;
 });
 
 
