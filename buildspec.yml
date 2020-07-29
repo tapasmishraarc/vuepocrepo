@@ -26,14 +26,14 @@ phases:
 
   build:
     commands:   
-      - sonar-scanner -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
-      - sleep 5
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
-      - cat result.json
-      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+      #- sleep 5
+      #- curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
+      #- cat result.json
+      #- if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
       - npm run test:unit
       - npm run build
-      - aws s3 cp --recursive dist/ s3://vuepocbucket/
+      - sonar-scanner -Dsonar.login=133109d90582a9013a36da40a0e3319be1d950af -Dsonar.host.url=http://34.75.171.163:9000 -Dsonar.projectKey=VueProjScan 
+      #- aws s3 cp --recursive dist/ s3://vuepocbucket/
   # artifacts:
   #   files:
   #     -  dist
