@@ -41,13 +41,13 @@ describe('Login.vue testing', () => {
 
   it('check for div existance', () => {
   const div = wrapper.find('div');
-  expect(div.exists()).to.equal(false);
+  expect(div.exists()).to.equal(true);
 })
 
 
 it("should render MainHeader on mount", () => {
   let component=shallowMount(MainHeader);
-  expect(component.find(MainHeader).exists()).to.be.false;
+  expect(component.find(MainHeader).exists()).to.be.true;
 });
 
 
