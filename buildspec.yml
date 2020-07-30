@@ -9,8 +9,8 @@ phases:
   install:   
     commands:
       - npm install --save
-   # runtime-versions:
-    #  java: openjdk8
+    runtime-versions:
+      java: corretto11
       
   
   pre_build:
