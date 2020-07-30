@@ -1,10 +1,8 @@
 version: 0.2
-#env:  
-#    secrets-manager:
- #     LOGIN: sonar:sonartoken
-  #  HOST: sonar:HOST
-   # Organization: sonar:Organization
-    #Project: sonar:Project
+env:
+  parameter-store:
+    SONARQUBE_TOKEN: "133109d90582a9013a36da40a0e3319be1d950af"
+    SONARQUBE_ENDPOINT: "http://34.75.171.163:9000"
 phases:
   install:   
     commands:
@@ -32,7 +30,7 @@ phases:
       #- if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
       - npm run test:unit
       - npm run build
-      - sonar-scanner -Dsonar.login=133109d90582a9013a36da40a0e3319be1d950af -Dsonar.host.url=http://34.75.171.163:9000 -Dsonar.projectKey=VueProjScan 
+      - sonar-scanner 
       #- aws s3 cp --recursive dist/ s3://vuepocbucket/
   # artifacts:
   #   files:
