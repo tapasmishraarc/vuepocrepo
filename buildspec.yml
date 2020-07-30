@@ -21,9 +21,8 @@ phases:
       #- tar xzf apache-maven-3.5.4-bin.tar.gz
       #- ln -s apache-maven-3.5.4 maven
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
-      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
-      - mv ./sonar-scanner-cli-3.3.0.1492-linux sonar-scanner
-      - export PATH=$PATH:/sonar-scanner/bin/
+      - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
 
   build:
     commands:   
@@ -33,7 +32,7 @@ phases:
       #- if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
       - npm run test:unit
       - npm run build
-      - ./sonar-scanner/bin/sonar-scanner -Dsonar.login=133109d90582a9013a36da40a0e3319be1d950af -Dsonar.host.url=http://34.75.171.163:9000 -Dsonar.projectKey=VueProjScan 
+      - sonar-scanner -Dsonar.login=133109d90582a9013a36da40a0e3319be1d950af -Dsonar.host.url=http://34.75.171.163:9000 -Dsonar.projectKey=VueProjScan 
       #- aws s3 cp --recursive dist/ s3://vuepocbucket/
   # artifacts:
   #   files:
