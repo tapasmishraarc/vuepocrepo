@@ -9,8 +9,8 @@ phases:
   install:   
     commands:
       - npm install --save
-    runtime-versions:
-      java: openjdk8
+   # runtime-versions:
+    #  java: openjdk8
       
   
   pre_build:
